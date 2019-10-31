@@ -12,7 +12,7 @@ const signMeIn = () => {
 
 const loginButton = () => {
   const domString = `<button id="google-auth" class="btn btn-danger">
-    img src=${pinterest} />
+    <img src=${pinterest} />
   </button>`;
 
   util.printToDom('auth', domString);
