@@ -1,9 +1,10 @@
 import 'bootstrap';
 import '../styles/main.scss';
 
+import auth from './components/Auth/auth';
 
 const init = () => {
-  console.error('Good Luck');
+  auth.loginButton();
 };
 
 init();
