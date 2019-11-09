@@ -2,16 +2,19 @@
   "board1": {
     "id": "board1",
     "name": "Food",
+    "imageUrl": "https://www.creativefabrica.com/wp-content/uploads/2018/11/Letter-food-logo-by-DEEMKA-STUDIO-580x406.jpg",
     "uid": "Momxk9deY1foRd3HOCu7srjFEcb2"
   },
   "board2": {
     "id": "board2",
     "name": "DIY",
+    "imageUrl": "https://www.energir.com/blogue/wp-content/uploads/2018/02/DIY-bandeau-1.jpg",
     "uid": "Momxk9deY1foRd3HOCu7srjFEcb2"
   },
   "board3": {
     "id": "board3",
     "name": "Drinks",
+    "imageUrl": "https://i.pinimg.com/originals/d8/cb/db/d8cbdb1485b1c1fbf5efc3792269de12.jpg",
     "uid": "Momxk9deY1foRd3HOCu7srjFEcb2"
   }
 }
