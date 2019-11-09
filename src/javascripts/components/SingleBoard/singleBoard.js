@@ -8,8 +8,8 @@ const pinsBoard = $('#pinBoards');
 
 
 const buildBoard = (boardId) => {
-  allBoards.addClass('hide');
-  pinsBoard.removeClass('hide');
+  allBoards.addClass();
+  pinsBoard.removeClass();
   let domString = `<h1 class="text-center">${boardId.name}</h1>`;
   domString += '<div id="board-section" class="d-flex flex-wrap justify-content-center">';
   pinData.getPins(boardId)
