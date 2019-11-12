@@ -9,6 +9,7 @@ const makeAPin = (pins) => {
     </div>
     <div class="card-body">
     <a href="${pins.siteUrl}" class="card-link">Visit this site.</a>
+    <button class="btn btn-link delete-pin" id="${pins.id}">Delete Pin</button>
     </div>
     </div>
     `;
