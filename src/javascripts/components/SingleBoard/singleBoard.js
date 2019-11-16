@@ -21,18 +21,22 @@ const deleteFromBoard = (e) => {
     .catch((error) => console.error(error));
 };
 
+
 const addNewPin = (e) => {
   e.stopImmediatePropagation();
   const assignToBoard = $('.add-a-pin')[0].id;
   const newPin = {
-    name: $('#pin-name').val(),
+    boardId: `${assignToBoard}`,
     description: $('#pin-description').val(),
+    imageUrl: $('#pin-image-url').val(),
+    name: $('#pin-name').val(),
+    siteUrl: $('#pin-site-url').val(),
   };
   pinData.addNewPin(newPin)
     .then(() => {
       $('#exampleModal').modal('hide');
       // eslint-disable-next-line no-use-before-define
-      pin.makeAPin(assignToBoard);
+      buildBoard(assignToBoard);
     })
     .catch((error) => console.error(error));
 };
