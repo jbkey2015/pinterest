@@ -1,4 +1,5 @@
 import firebase from 'firebase';
+import 'firebase/auth';
 import $ from 'jquery';
 import boardsData from '../../helpers/data/boardData';
 import utilities from '../../helpers/utilities';
