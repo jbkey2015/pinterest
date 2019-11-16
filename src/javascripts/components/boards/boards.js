@@ -33,11 +33,31 @@ const deleteBoardAndPins = (e) => {
     .catch((error) => console.error(error));
 };
 
+const addNewBoard = (e) => {
+  e.stopImmediatePropagation();
+  const { uid } = firebase.auth().currentUser;
+  const newBoard = {
+    name: $('#board-name').val(),
+    imageUrl: $('#board-image-url').val(),
+    uid,
+  };
+  boardsData.addNewBoard(newBoard)
+    .then(() => {
+      $('#exampleModal').modal('hide');
+      // eslint-disable-next-line no-use-before-define
+      showAllBoards(uid);
+    })
+    .catch((error) => console.error(error));
+};
+
 
 const showAllBoards = (uid) => {
   boardsData.getBoards(uid)
     .then((boards) => {
       let domString = '';
+      domString += `<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+      Add Board
+      </button>`;
       domString += '<div id="myBoards" class="d-flex flex-wrap">';
       boards.forEach((board) => {
         domString += `
@@ -51,6 +71,7 @@ const showAllBoards = (uid) => {
         utilities.printToDom('boards', domString);
         $('#boards').on('click', '.view-board', goToBoard);
         $('#boards').on('click', '.delete-board', deleteBoardAndPins);
+        $(document.body).on('click', '#add-new-board', addNewBoard);
       });
     })
     .catch((error) => console.error(error));
