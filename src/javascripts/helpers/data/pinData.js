@@ -18,10 +18,15 @@ const getPins = (boardId) => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
-const getPinById = (pinId) => new Promise((resolve, reject) => {
+const updatePin = (pinId, edPin) => axios.put(`${baseurl}/pins/${pinId}.json`, edPin);
+
+const getPinById = (pinId, changeBoard) => new Promise((resolve, reject) => {
   axios.get(`${baseurl}/pins/${pinId}.json`)
-    .then((response) => {
-      resolve(response.data);
+    .then((result) => {
+      const pinObject = result.data;
+      pinObject.boardId = changeBoard;
+      updatePin(pinId, pinObject);
+      resolve();
     })
     .catch((err) => reject(err));
 });
@@ -29,8 +34,6 @@ const getPinById = (pinId) => new Promise((resolve, reject) => {
 const deletePin = (pinId) => axios.delete(`${baseurl}/pins/${pinId}.json`);
 
 const addNewPin = (newPin) => axios.post(`${baseurl}/pins.json`, newPin);
-
-const updatePin = (pinId, edPin) => axios.put(`${baseurl}/pins/${pinId}.json`, edPin);
 
 
 export default {
